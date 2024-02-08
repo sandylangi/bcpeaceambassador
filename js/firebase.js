@@ -104,7 +104,7 @@ function login() {
     window.alert("Error: " + errorMessage);
   });
 
-  var email = document.getElementById('email').value;
+  var email = document.getElementById('em_email').value;
   var password = document.getElementById('email_pass').value;
   var currentDate = new Date().toISOString().slice(0, 10);
   var currentTime = new Date().toISOString().slice(11, 19);
