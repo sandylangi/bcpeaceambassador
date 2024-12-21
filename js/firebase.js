@@ -1,13 +1,12 @@
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyAR74Twa556NSfp7WGBfewZW3QNcdVuqvE",
-  authDomain: "arabfmaous.firebaseapp.com",
-  databaseURL: "https://arabfmaous-default-rtdb.firebaseio.com",
-  projectId: "arabfmaous",
-  storageBucket: "arabfmaous.appspot.com",
-  messagingSenderId: "67370852932",
-  appId: "1:67370852932:web:1d8f50efac8421850dd211",
-  measurementId: "G-TEGMLXLC02"
+  apiKey: "AIzaSyB254RBxOsg0aAeiRfExbVOJ0E3OfGDv0A",
+  authDomain: "alphafashionshow.firebaseapp.com",
+  databaseURL: "https://alphafashionshow-default-rtdb.firebaseio.com",
+  projectId: "alphafashionshow",
+  storageBucket: "alphafashionshow.appspot.com",
+  messagingSenderId: "406410615335",
+  appId: "1:406410615335:web:bdfca4503b1a3c5b64cc02"
 };
 firebase.initializeApp(firebaseConfig);
 const appCheck = firebase.appCheck();
